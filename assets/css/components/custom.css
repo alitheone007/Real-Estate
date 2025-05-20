@@ -1,0 +1,167 @@
+/*
+ * assets/css/components/custom.css
+ * Custom styles and overrides
+ */
+
+/* Custom Variables (You can use these in your CSS) */
+:root {
+  --primary-color: #2563eb; /* Tailwind blue-600 */
+  --secondary-color: #4f46e5; /* Tailwind violet-600 */
+  --success-color: #16a34a; /* Tailwind green-600 */
+  --warning-color: #eab308; /* Tailwind yellow-500 */
+  --danger-color: #dc2626; /* Tailwind red-600 */
+  --light-bg: #f8fafc;    /* Tailwind gray-50 */
+  --dark-bg: #1e293b;     /* Tailwind gray-800 */
+
+  /* Adding variables for edu gradient text based on Tailwind colors */
+  --edu-blue: #3b82f6; /* Tailwind blue-500 */
+  --edu-teal: #06b6d4; /* Tailwind cyan-500 */
+  --edu-green: #10b981; /* Tailwind emerald-500 */
+}
+
+
+/* Custom Container (Example - Tailwind's max-w-7xl and mx-auto are often sufficient) */
+/*
+.custom-container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1280px;
+}
+*/
+
+
+/* --- Custom Styles from React Components --- */
+
+/* Gradient Text */
+.edu-gradient-text {
+    background: linear-gradient(to right, var(--edu-blue), var(--edu-teal)); /* Using CSS variables */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* Glass Card Effect */
+.glass-card {
+    background-color: rgba(255, 255, 255, 0.08); /* Slightly visible white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Light border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Hover Scale Effect (Combine with Tailwind's hover:scale- utility if needed) */
+.hover-scale {
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+/* Note: The actual scaling (e.g., transform: scale(1.02);) should be applied on hover,
+   often handled by Tailwind utility classes like hover:scale-105 directly in HTML.
+   This CSS rule just defines the transition duration and timing. */
+
+/* Shine Effect for Buttons/Elements */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Ensure shine is above background */
+}
+.shine-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen to the left */
+    width: 300%; /* Wide enough to cover the element during animation */
+    height: 100%;
+    /* Gradient for the shine effect */
+    background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.8) 60%, transparent 100%);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth transition */
+    pointer-events: none; /* Allow clicks through the pseudo-element */
+    z-index: 2; /* Ensure shine is above the element's content */
+}
+.shine-effect:hover::before {
+    left: 0%; /* Move shine across on hover */
+}
+
+
+/* Fade-in Animation */
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0; /* Start invisible */
+}
+/* Keyframes for fade-in */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* End fully visible */
+    }
+}
+
+/* Slide-in Animation (Example - from React code) */
+/*
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+@keyframes slideIn {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+*/
+
+
+/* Screen Reader Only (Accessibility) */
+/* Tailwind's sr-only utility class is usually preferred */
+/*
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  whitespace: nowrap;
+  border-width: 0;
+}
+*/
+
+/* Focus Visible (Accessibility) */
+/* Tailwind's focus:outline-none, focus:ring-2, etc., are usually preferred */
+/*
+.focus-visible {
+  focus:outline-none;
+  focus:ring-2;
+  focus:ring-blue-500;
+  focus:ring-offset-2;
+}
+*/
+
+/* Custom Scrollbar (Example) */
+/* Note: browser support for styling scrollbars varies */
+/*
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--light-bg);
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+*/
+
+/* Remove or comment out the duplicate rules */
+/*
+.edu-gradient-text { ... }
+.glass-card { ... }
+.hover-scale { ... }
+.edu-gradient-text { ... }
+.glass-card { ... }
+.shine-effect { ... }
+.hover-scale:hover { ... }
+.animate-fade-in { ... }
+@keyframes fadeIn { ... }
+*/
