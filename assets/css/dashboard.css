@@ -1,0 +1,14 @@
+.glass-card {
+    @apply bg-card/70 backdrop-blur-md border border-border/40 shadow-lg;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-lg -z-10 opacity-0 transition-opacity duration-300;
+}
+
+.glass-card:hover::before {
+    @apply opacity-100;
+}
